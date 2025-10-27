@@ -15,7 +15,7 @@ On HPC (Frontier, Aurora and Polaris), simply load the module afterwards.
 We will use ALCF/Aurora as an example. You can skip this if you already have a
 NekRS installtion (with or without ascent module).
 
--  Install NekRS with modules from `nekrs/scripts`.      
+1. Install NekRS with modules from `nekrs/scripts`.      
 
    To recap, on Aurora     
    1. Get nekrs. Can be at Home or Project Work.  
@@ -47,9 +47,9 @@ NekRS installtion (with or without ascent module).
                -DCMAKE_INSTALL_PREFIX=${NEKRS_HOME}
       ```
 
-   2 and 3 are required every login.
+   ii and iii are required every login.
 
--  Add Ascent environment into submit script
+2. Add Ascent environment into submit script
 
    This has already been done. Search `USE_ASCENT` in `$NEKRS_HOME/bin/nrsqaub_aurora`.
 
