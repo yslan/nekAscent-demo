@@ -1,5 +1,22 @@
 # nekAscent Demo     
 
+Underconstruction!
+Underconstruction!
+Underconstruction!
+
+This will be a self-guided tutorial run insitu visualization using NekRS + Ascent.
+
+NekRS version: v24-development, https://github.com/Nek5000/nekRS/tree/v24-development
+
+## Prerequisite
+
+- (Required) Experience in installing and running NekRS.
+- (Preferred) Experience with and access to HPC systems (ALCF/Aurora will be used in the demo).
+- (Optional) Some experience in Docker (or CMake) if one wants to run locally.
+- Go through the lessons 0.1 and 0.2 by yourself.
+
+## Lessons
+
 <style>
   /* Zerobased hierarchical numbering: 0., 0.1., 0.2., 1., 1.1., ... */
   ol.zerobased {
@@ -27,22 +44,6 @@
   }
 </style>
 
-Underconstruction!
-Underconstruction!
-Underconstruction!
-
-This will be a self-guided tutorial run insitu visualization using NekRS + Ascent.
-
-NekRS version: v24-development, https://github.com/Nek5000/nekRS/tree/v24-development
-
-## Prerequisite
-
-- (Required) Experience in installing and running NekRS.
-- (Preferred) Experience with and access to HPC systems (ALCF/Aurora will be used in the demo).
-- (Optional) Some experience in Docker (or CMake) if one wants to run locally.
-- Go through the lessons 0.1 and 0.2 by yourself.
-
-## Lessons
 
 <ol class="zerobased">
   <li>Intro item (numbered 0.)</li>
