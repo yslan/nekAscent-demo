@@ -1,0 +1,173 @@
+- 
+  action: "add_pipelines"
+  pipelines:
+    pl1:
+      f1:
+        type: "slice"
+        params:
+          point:
+            x: 0.0001
+            y: 0.0
+            z: 0.0
+          normal:
+            x: 1.0
+            y: 0.0
+            z: 0.0
+    pl2:
+      f1:
+        type: "slice"
+        params:
+          point:
+            x: 0.0001
+            y: 0.0
+            z: 0.0
+          normal:
+            x: 0.0
+            y: 1.0
+            z: 0.0
+    pl5:
+      f1:
+        type: "slice"
+        params:
+          point:
+            x: -0.0001
+            y: 0.0
+            z: 0.0
+          normal:
+            x: 1.0
+            y: 0.0
+            z: 0.0
+      f2:
+        type: "clip"
+        params:
+          invert: "true"
+          plane:
+            point:
+              x: 0.0
+              y: 0.0
+              z: 0.0
+            normal:
+              x: 0.0
+              y: 1.0
+              z: 0.0
+    pl6:
+      f1:
+        type: "slice"
+        params:
+          point:
+            x: 0.0
+            y: -0.0001
+            z: 0.0
+          normal:
+            x: 0.0
+            y: 1.0
+            z: 0.0
+      f2:
+        type: "clip"
+        params:
+          invert: "true"
+          plane:
+            point:
+              x: 0.0
+              y: 0.0
+              z: 0.0
+            normal:
+              x: 1.0
+              y: 0.0
+              z: 0.0
+    pl7:
+      f1:
+        type: "slice"
+        params:
+          point:
+            x: 0.0
+            y: 0.0
+            z: 7.4
+          normal:
+            x: 0.0
+            y: 0.0
+            z: 1.0
+
+- 
+  action: "add_scenes"
+  scenes:
+    s1:
+      plots:
+        p1:
+          type: "pseudocolor"
+          field: "velocity_z"
+          pipeline: "pl1"
+          color_table:
+            name: "Cool to Warm Extended"
+          min_value: -0.5
+          max_value: 1.5
+      renders:
+        r1:
+          camera:
+            azimuth: 90
+            zoom: 8.0
+          image_prefix: "imgs/vz_xslice_%06d"
+          world_annotations: false
+          screen_annotations: false
+          image_width: 2048
+          image_height: 256
+    s2:
+      plots:
+        p1:
+          type: "pseudocolor"
+          field: "velocity_z"
+          pipeline: "pl2"
+          color_table:
+            name: "Cool to Warm Extended"
+          min_value: -0.5
+          max_value: 1.5
+      renders:
+        r1:
+          camera:
+            position: [0.0, 5.0, 5.0]
+            look_at: [0.0, 0.0, 5.0]
+            up: [1.0, 0.0, 0.0]
+            zoom: 4.0
+          image_prefix: "imgs/vz_yslice_%06d"
+          world_annotations: false
+          screen_annotations: false
+          image_width: 2048
+          image_height: 256
+    s5:
+      plots:
+        p1:
+          type: "pseudocolor"
+          field: "velocity_z"
+          pipeline: "pl5"
+          color_table:
+            name: "Cool to Warm Extended"
+          min_value: -0.5
+          max_value: 1.5
+        p2:
+          type: "pseudocolor"
+          field: "velocity_z"
+          pipeline: "pl6"
+          color_table:
+            name: "Cool to Warm Extended"
+          min_value: -0.5
+          max_value: 1.5
+        p3:
+          type: "pseudocolor"
+          field: "velocity_z"
+          pipeline: "pl7"
+          color_table:
+            name: "Cool to Warm Extended"
+          min_value: -0.5
+          max_value: 1.5
+      renders:
+        r1:
+          camera:
+            position: [3.0, 3.0, 11.0]
+            look_at: [0.0, 0.0, 9.0]
+            up: [0.7071, -0.7071, 0.0]
+            zoom: 4.0
+          image_prefix: "imgs/vz_3slices_%06d"
+          world_annotations: false
+          screen_annotations: false
+          image_width: 2048
+          image_height: 512

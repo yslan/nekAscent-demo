@@ -1,0 +1,25 @@
+[GENERAL]
+polynomialOrder = 9
+dt = 1.e-4
+timeStepper = tombo2
+#startFrom = "turbPipePeriodic_re19k_t40_N9_r3v.fld"
+
+numSteps = 1000 #40000
+checkpointInterval = 1000
+
+constFlowRate = meanVelocity=1.0 + direction=Z
+regularization = hpfrt + nModes=1 + scalingCoeff=10
+
+[PRESSURE]
+residualTol = 1e-7
+initialGuess = projectionAconj+nVector=10
+
+[VELOCITY]
+boundaryTypeMap = W
+density = 1.0
+viscosity = -19000.
+residualTol = 1e-8
+initialGuess = projectionAconj+nVector=10
+
+[CASEDATA]
+ioStepAscent = 100
