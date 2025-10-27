@@ -1,3 +1,5 @@
+# Configuration
+
 [back to homepage](README.md)
 
 This is a quick guide to installing NekRS and Ascent.
