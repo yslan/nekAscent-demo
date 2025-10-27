@@ -15,17 +15,17 @@ On HPC (Frontier, Aurora and Polaris), simply load the module afterwards.
 We will use ALCF/Aurora as an example. You can skip this if you already have a
 NekRS installtion (with or without ascent module).
 
-1. Install NekRS with modules from `nekrs/scripts`.      
+-  Install NekRS with modules from `nekrs/scripts`.      
 
-   To recap, on Aurora
-   a. Get nekrs. Can be at Home or Project Work.  
+   To recap, on Aurora     
+   1. Get nekrs. Can be at Home or Project Work.  
       ```
       git clone https://github.com/Nek5000/NekRS.git nekrs_repo_v24dev
       cd nekrs_repo_v24dev
       git checkout v24-development
       ```
 
-   b. Load modules
+   2. Load modules
       ```
       module load cmake
       
@@ -36,22 +36,22 @@ NekRS installtion (with or without ascent module).
 
       As a sanity check, XXX
 
-   c. Set installation path. Modify it correspondingly.
+   3. Set installation path. Modify it correspondingly.
       ```
       export NEKRS_HOME=/lus/flare/projects/EnergyApps/ylan/.local/nekrs_repo_v24dev
       ```
 
-   d. Compile
+   4. Compile
       ```
       CC=mpicc CXX=mpic++ FC=mpif77 ./build.sh \
                -DCMAKE_INSTALL_PREFIX=${NEKRS_HOME}
       ```
 
-   b and c are required every login.
+   2 and 3 are required every login.
 
-2. Add Ascent environment into submit script
+-  Add Ascent environment into submit script
 
-   This is already done. Search `USE_ASCENT` in `$NEKRS_HOME/bin/nrsqaub_aurora`.
+   This has already been done. Search `USE_ASCENT` in `$NEKRS_HOME/bin/nrsqaub_aurora`.
 
 
 ## Ascent on different machines
