@@ -17,7 +17,7 @@ NekRS version: v24-development, https://github.com/Nek5000/nekRS/tree/v24-develo
 
 ## Lessons
 
-- 0.1 (DIY) Configuration / Installation: [link](L0_1_nekAscent_configuration.md)
+- 0.1 (DIY) Configuration / Installation: [link](L0_1_nekAscent_config.md)
 
 - 0.2 (DIY) Run an example: [Link](L0_2_run_an_example.md)
 
