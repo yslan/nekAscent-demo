@@ -19,33 +19,33 @@ NekRS installtion (with or without ascent module).
 
    To recap, on Aurora
    a. Get nekrs. Can be at Home or Project Work.  
-     ```
-     git clone https://github.com/Nek5000/NekRS.git nekrs_repo_v24dev
-     cd nekrs_repo_v24dev
-     git checkout v24-development
-     ```
+      ```
+      git clone https://github.com/Nek5000/NekRS.git nekrs_repo_v24dev
+      cd nekrs_repo_v24dev
+      git checkout v24-development
+      ```
 
    b. Load modules
-     ```
-     module load cmake
-     
-     # Not required for compilation, but will use later
-     module use /soft/modulefiles/
-     module load ascent/develop/2025-03-19-c1f63e7-openmp
-     ```
+      ```
+      module load cmake
+      
+      # Not required for compilation, but will use later
+      module use /soft/modulefiles/
+      module load ascent/develop/2025-03-19-c1f63e7-openmp
+      ```
 
-     As a sanity check, XXX
+      As a sanity check, XXX
 
    c. Set installation path. Modify it correspondingly.
-     ```
-     export NEKRS_HOME=/lus/flare/projects/EnergyApps/ylan/.local/nekrs_repo_v24dev
-     ```
+      ```
+      export NEKRS_HOME=/lus/flare/projects/EnergyApps/ylan/.local/nekrs_repo_v24dev
+      ```
 
    d. Compile
-     ```
-     CC=mpicc CXX=mpic++ FC=mpif77 ./build.sh \
-              -DCMAKE_INSTALL_PREFIX=${NEKRS_HOME}
-     ```
+      ```
+      CC=mpicc CXX=mpic++ FC=mpif77 ./build.sh \
+               -DCMAKE_INSTALL_PREFIX=${NEKRS_HOME}
+      ```
 
    b and c are required every login.
 
