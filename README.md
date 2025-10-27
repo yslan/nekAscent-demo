@@ -10,8 +10,10 @@ NekRS version: v24-development, https://github.com/Nek5000/nekRS/tree/v24-develo
 
 ## Prerequisite
 
-- (Required) Experience in installing and running NekRS.
-- (Preferred) Experience with and access to HPC systems (ALCF/Aurora will be used in the demo).
+- (Required) Experience in installing and running **NekRS**, and using
+  visualization tools such as **ParaView** or **VisIt**.
+- (Preferred) Experience with and access to HPC systems (ALCF/Aurora will be
+  used in the demo).
 - (Optional) Some experience in Docker (or CMake) if one wants to run locally.
 - Go through the lessons 0.1 and 0.2 by yourself.
 

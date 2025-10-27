@@ -8,12 +8,6 @@ Here, we will go through a simple example to explain how `nekAscent` works.
 
 This is a modified NekRS `turbPipePeriodic` example.
 
-https://drive.google.com/file/d/1l2oN64Br0JdKoTk1yAWAT-LlfqbZ43nY
-
-`<REPLACE>`
-
-- example0_turbPiperPeriodic
-
 0. Get the example
 
    ```
@@ -41,8 +35,8 @@ https://drive.google.com/file/d/1l2oN64Br0JdKoTk1yAWAT-LlfqbZ43nY
 
 2. Run the example      
 
-   It's the same way to submit a job but with `USE_ASCENT=1` to activate the
-   environment.
+   It's the same way to submit a job via script but with `USE_ASCENT=1` to
+   activate the related environment.
    
    ```
    # Change project id and queue correspondingly
@@ -51,7 +45,7 @@ https://drive.google.com/file/d/1l2oN64Br0JdKoTk1yAWAT-LlfqbZ43nY
 
 3. Post-checks 
 
-   Ascent is linked only when the UDF is compiled (at pre-compilation)
+   Ascent is linked only when the UDF is compiled (at pre-compilation)     
    XXX: log, img, scripts from png to gif
    show some output images here
 
@@ -63,43 +57,42 @@ Then, it's time to try your own cases!
 
 - UDF
 
-  - On/off switch. The preprocessor macro `NEKRS_ASCENT_ENABLED` is defined in
-    `nekAscent.hpp`. To toggle the extra nekAscent settingsm comment or
-    uncomment the ` #include "nekAscent.hpp"` line.
-    Search for the macro in your UDF to locate the plugin-specific code.
+  0. **On/off switch**.  
+     The preprocessor macro `NEKRS_ASCENT_ENABLED` is defined in `nekAscent.hpp`.
+     To toggle the extra nekAscent settingsm comment or uncomment the 
+     `#include "nekAscent.hpp"` line. Search for the macro in your UDF to locate
+     the plugin-specific code.
 
-  - (`UDF_Setup`) `nekAscent::addVariable`
+  1. (`UDF_Setup`) `nekAscent::addVariable`
 
-    Following other NekRS interface, a field can be passed to nekAscent via
-    `std::vector<deviceMemory<dfloat>>`. Here, we send the pointer of
-    velocity components and register the name as "velocity" (can be arbitrary).
-    ```
-    nekAscent::addVariable("velocity", mesh, o_U);
-    ```
+     Following other NekRS interface, a field can be passed to nekAscent via
+     `std::vector<deviceMemory<dfloat>>`. Here, we send the pointer of
+     velocity components and register the name as "velocity" (can be arbitrary).
+     ```
+     nekAscent::addVariable("velocity", mesh, o_U);
+     ```
 
-  - (`UDF_Setup`) `nekAscent::setup`
+  2. (`UDF_Setup`) `nekAscent::setup`
 
-    User specify the `mesh` of the field in case of having a solid domain followed
-    by the Ascent action file "ascent.yaml". The rest arguments are optional.
+     User specify the `mesh` of the field in case of having a solid domain followed
+     by the Ascent action file "ascent.yaml". The rest arguments are optional.
 
-    ```
-    const int Nviz = 13;            // polynomial order used in visualization
-    const auto uniform = true;      // uniform grid or Gauss-Lobatto points
-    const auto stageThroughHost = true; // works on my laptop and frontier
-    const auto async = true;        // asyncronization mode, it's faster on Frontier
-    nekAscent::setup(mesh, "ascent.yaml", Nviz, uniform, stageThroughHost, async);
-    ```
-  - (`UDF_ExecuteStep`) `nekAscent::run`
+     ```
+     const int Nviz = 13;            // polynomial order used in visualization
+     const auto uniform = true;      // uniform grid or Gauss-Lobatto points
+     const auto stageThroughHost = true; // works on my laptop and frontier
+     const auto async = true;        // asyncronization mode, it's faster on Frontier
+     nekAscent::setup(mesh, "ascent.yaml", Nviz, uniform, stageThroughHost, async);
+     ```
+  3. (`UDF_ExecuteStep`) `nekAscent::run`
 
-    We use the variable `ioStepAscent` (customized par key, passed in `UDF_Setup`)
-    to control how frequent Ascent is called. 
-    ```
-    nekAscent::run(time, tstep);
-    ```
-
-    Each time, the "ascent.yaml" will be read again allowing user to adjust the
-    visualzation at runtime. See `turbPipe` example for a more sophiscated usage.
-
+     We use the variable `ioStepAscent` (customized par key, passed in `UDF_Setup`)
+     to control how frequent Ascent is called. 
+     ```
+     nekAscent::run(time, tstep);
+     ```
+     Each time, the "ascent.yaml" will be read again allowing user to adjust the
+     visualzation at runtime. See `turbPipe` example for a more sophiscated usage.
 
 - Ascent actions: `ascent.yml`
 

@@ -80,11 +80,11 @@ void UDF_Setup()
     std::vector<deviceMemory<dfloat>> o_U{o_ux, o_uy, o_uz};
     nekAscent::addVariable("velocity", mesh, o_U);
 
-    const int Nviz = 13;
-    const auto uniform = true;
+    const int Nviz = 13;            // polynomial order used in visualization
+    const auto uniform = true;      // uniform grid or Gauss-Lobatto points
 //    const auto stageThroughHost = false; // works on frontier
     const auto stageThroughHost = true; // works on my laptop and frontier
-    const auto async = true; // faster on Frontier
+    const auto async = true;        // asyncronization mode, it's faster on Frontier
     nekAscent::setup(mesh, "ascent.yaml", Nviz, uniform, stageThroughHost, async);
   }
 #endif
