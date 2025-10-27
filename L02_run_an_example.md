@@ -11,7 +11,7 @@ This is a modified NekRS `turbPipePeriodic` example.
 0. Get the example
 
    ```
-   cd ex01_pipe
+   cd ex02_pipe
    tar zxvf pipe.re2.tar.gz
    ```
 

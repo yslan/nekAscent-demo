@@ -21,9 +21,9 @@ NekRS version: v24-development, https://github.com/Nek5000/nekRS/tree/v24-develo
 
 0. Prerequisite (DIY Homework)
 
-   - 0.1 Configuration / Installation: [L0.1 Link](L0_1_nekAscent_config.md)
+   - 0.1 Configuration / Installation: [L0.1 Link](L01_nekAscent_config.md)
 
-   - 0.2 Run an example: [L0.2 Link](L0_2_run_an_example.md)
+   - 0.2 Run an example: [L0.2 Link](L02_run_an_example.md)
 
 1. Introduction -- Capabilities and Workflow        
 
